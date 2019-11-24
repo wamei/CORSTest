@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CORS Test</title>
+  </head>
+  <body>
+    <div>
+      <input type="button" onClick="submit(this.value)" value="https://google.com" />
+      <input type="button" onClick="submit(this.value)" value="http://localhost:4000" />
+      <input type="button" onClick="submit(this.value)" value="https://httpbin.org/get" />
+    </div>
+    <div>
+      <p>header</p>
+      <textarea id="header" style="width: 200px; height: 300px;"></textarea>
+    </div>
+    <div>
+      <p>body</p>
+      <textarea id="body" style="width: 200px; height: 300px;"></textarea>
+    </div>
+    <script>
+    function submit(url) {
+      const $header = document.getElementById("header");
+      const $body = document.getElementById("body");
+      fetch(url, {
+        mode: 'cors',
+        credentials: 'include',
+      }).then(response => {
+        $header.innerHTML = '';
+        for (let [key, value] of response.headers.entries()) {
+          $header.innerHTML += `${key}: ${value}\n`;
+        }
+        response.text().then(text => {
+          $body.innerHTML = text;
+        });
+      }).catch(error => {
+        $header.innerHTML = '';
+        $body.innerHTML = error.message;
+      });
+    }
+    </script>
+  </body>
+</html>
