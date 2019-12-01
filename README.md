@@ -1,10 +1,14 @@
 # CORSTest
-iOS WebViewアプリでローカルのhtmlファイルからAPIリクエストを送るサンプルです。
+iOS/Android WebViewアプリでローカルのhtmlファイルからAPIリクエストを送るサンプルです。
 
 # 動かし方
 - クライアント
 
-`CORSTest.xcworkspace`をXCodeで開いてビルドすればOK
+iOS  
+`iOS/CORSTest.xcworkspace`をXCodeで開いてビルドすればOK  
+  
+Android  
+`Android`をAndroidStudioで開いてビルドすればOK
 
 - サーバー
 
@@ -12,3 +16,5 @@ iOS WebViewアプリでローカルのhtmlファイルからAPIリクエスト�
 cd Server
 node test.js
 ```
+
+[http://localhost:4000/index.html](http://localhost:4000/index.html) でブラウザで確認もできます
