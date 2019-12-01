@@ -84,7 +84,8 @@
 			children = (
 				01DCC5E523818BE6002B937C /* index.html */,
 			);
-			path = Resources;
+			name = Resources;
+			path = ../Resources;
 			sourceTree = "<group>";
 		};
 		5771F7E0CC50D2DA9AD56F66 /* Pods */ = {
